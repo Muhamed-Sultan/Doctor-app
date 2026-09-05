@@ -7,6 +7,7 @@ class CustomTextField extends StatelessWidget {
   final FontWeight fontWeight;
   final FormFieldValidator<String>? validator;
   final bool isOutline;
+  final Function(String)? onChanged;
   const CustomTextField({
     super.key,
     required this.label,
@@ -15,11 +16,13 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     required this.fontWeight,
     required this.isOutline,
+    this.onChanged,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       onTapOutside: (value) {
         FocusScope.of(context).unfocus();
       },
@@ -34,7 +37,7 @@ class CustomTextField extends StatelessWidget {
           fontWeight: fontWeight,
         ),
         filled: true,
-        fillColor: Color(0xffD9D9D9),
+        fillColor: Color(0xfff4f4f4),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
