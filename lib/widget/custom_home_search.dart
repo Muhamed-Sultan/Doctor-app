@@ -10,7 +10,7 @@ class CustomHomeSearch extends StatelessWidget {
         FocusScope.of(context).unfocus();
       },
       decoration: InputDecoration(
-        fillColor: Color(0xffF2F3F2),
+        fillColor: Color(0xffD9D9D9),
         filled: true,
         hintText: 'Search Store',
         hintStyle: TextStyle(

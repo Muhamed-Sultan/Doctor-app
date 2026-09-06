@@ -1,7 +1,4 @@
 import 'package:doctor_app/screens/login_screen.dart';
-import 'package:doctor_app/widget/custom_buttoms.dart';
-import 'package:doctor_app/widget/custom_text_field.dart';
-import 'package:doctor_app/widget/custom_text_field_validator.dart';
 import 'package:doctor_app/widget/register_form.dart';
 import 'package:flutter/material.dart';
 

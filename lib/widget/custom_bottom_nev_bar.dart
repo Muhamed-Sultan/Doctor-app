@@ -1,58 +1,125 @@
-// import 'package:flutter/material.dart';
-// `import 'package:grocerie_app/screen/explore_screen.dart';
-// import 'package:grocerie_app/screen/shop_screen.dart';`
+import 'package:doctor_app/screens/home_screen.dart';
+import 'package:flutter/material.dart';
 
-// class ButtomNevBarScreen extends StatefulWidget {
-//   const ButtomNevBarScreen({super.key});
+class ButtomNevBarScreen extends StatefulWidget {
+  const ButtomNevBarScreen({super.key});
 
-//   @override
-//   State<ButtomNevBarScreen> createState() => _ButtomNevBarScreenState();
-// }
+  @override
+  State<ButtomNevBarScreen> createState() => _ButtomNevBarScreenState();
+}
 
-// int currentIndex = 0;
+class _ButtomNevBarScreenState extends State<ButtomNevBarScreen> {
+  int currentIndex = 0;
 
-// List<Widget> screen = [ShopScreen(), ExploreScreen()];
+  final List<Widget> screens = [
+    HomeScreen(),
+    const Center(child: Text('Appointments')),
+    const Center(child: Text('Chat')),
+    const Center(child: Text('Appointments')),
+    const Center(child: Text('Profile')),
+  ];
 
-// class _ButtomNevBarScreenState extends State<ButtomNevBarScreen> {
-//   int currentIndex = 0;
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: SafeArea(child: screen[currentIndex]),
-//       backgroundColor: Colors.white,
-//       bottomNavigationBar: BottomNavigationBar(
-//         currentIndex: currentIndex,
-//         selectedItemColor: Color(0xff53B175),
-//         onTap: (index) {
-//           setState(() {
-//             currentIndex = index;
-//           });
-//         },
-//         type: BottomNavigationBarType.fixed,
-//         backgroundColor: Color(0xffFFFFFF),
-//         items: [
-//           BottomNavigationBarItem(
-//             icon: Icon(Icons.storefront_outlined),
-//             label: 'shop',
-//           ),
-//           BottomNavigationBarItem(
-//             icon: Icon(Icons.manage_search_outlined),
-//             label: 'explore',
-//           ),
-//           BottomNavigationBarItem(
-//             icon: Icon(Icons.shopping_cart_outlined),
-//             label: 'cart',
-//           ),
-//           BottomNavigationBarItem(
-//             icon: Icon(Icons.favorite_border),
-//             label: 'favorites',
-//           ),
-//           BottomNavigationBarItem(
-//             icon: Icon(Icons.person_outlined),
-//             label: 'profile',
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+
+      body: SafeArea(child: screens[currentIndex]),
+
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,
+
+        onTap: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
+
+        type: BottomNavigationBarType.fixed,
+
+        backgroundColor: Colors.white,
+
+        selectedItemColor: Colors.white,
+
+        unselectedItemColor: Colors.black,
+
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+
+        items: [
+          BottomNavigationBarItem(
+            icon: Container(
+              width: 44,
+              height: 44,
+              decoration: BoxDecoration(
+                color: currentIndex == 0
+                    ? const Color(0xff5A88C6)
+                    : Colors.transparent,
+                borderRadius: BorderRadius.circular(9),
+              ),
+              child: Icon(
+                Icons.home_outlined,
+                color: currentIndex == 0 ? Colors.white : Colors.black,
+              ),
+            ),
+            label: '',
+          ),
+
+          BottomNavigationBarItem(
+            icon: Container(
+              width: 44,
+              height: 44,
+              decoration: BoxDecoration(
+                color: currentIndex == 1
+                    ? const Color(0xff5A88C6)
+                    : Colors.transparent,
+                borderRadius: BorderRadius.circular(9),
+              ),
+              child: Icon(
+                Icons.access_time,
+                color: currentIndex == 1 ? Colors.white : Colors.black,
+              ),
+            ),
+            label: '',
+          ),
+
+          BottomNavigationBarItem(
+            icon: Container(
+              width: 44,
+              height: 44,
+              decoration: BoxDecoration(
+                color: currentIndex == 2
+                    ? const Color(0xff5A88C6)
+                    : Colors.transparent,
+                borderRadius: BorderRadius.circular(9),
+              ),
+              child: Icon(
+                Icons.chat_bubble_outline,
+                color: currentIndex == 2 ? Colors.white : Colors.black,
+              ),
+            ),
+            label: '',
+          ),
+
+          BottomNavigationBarItem(
+            icon: Container(
+              width: 44,
+              height: 44,
+              decoration: BoxDecoration(
+                color: currentIndex == 3
+                    ? const Color(0xff5A88C6)
+                    : Colors.transparent,
+                borderRadius: BorderRadius.circular(9),
+              ),
+              child: Icon(
+                Icons.person_outline,
+                color: currentIndex == 3 ? Colors.white : Colors.black,
+              ),
+            ),
+            label: '',
+          ),
+        ],
+      ),
+    );
+  }
+}
